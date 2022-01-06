@@ -23,6 +23,11 @@ Route::group(['middleware' => 'guest'], function (){
     Route::get('/vk/auth/callback/', [\App\Http\Controllers\SocialController::class, 'callback']);
 });
 
+Route::apiResources([
+    'topics' => \App\Http\Controllers\Api\TopicController::class,
+]);
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -15,9 +15,9 @@ class Topic extends Model
     ];
     protected $table = 'topics';
 
-    public function user(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function tags(): \Illuminate\Database\Eloquent\Relations\HasMany
