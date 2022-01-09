@@ -13,7 +13,7 @@ class SocialController extends Controller
         return Socialite::driver('vkontakte')->redirect();
     }
 
-    public function callback()
+    public function callback(): \Illuminate\Routing\Redirector|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse
     {
         $user = Socialite::driver('vkontakte')->user();
         $objSocial = new SocialService();

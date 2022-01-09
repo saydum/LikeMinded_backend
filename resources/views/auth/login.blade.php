@@ -45,7 +45,8 @@
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                        {{ __('Remember Me') }} <br>
+                                        <a href="{{ route('vk-auth') }}">Вход через вк</a>
                                     </label>
                                 </div>
                             </div>

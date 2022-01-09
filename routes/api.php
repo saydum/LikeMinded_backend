@@ -20,4 +20,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::get('/get', [\App\Http\Controllers\GetController::class, 'get']);
+
+});
+
+
+Route::group(['middleware' => 'guest'], function (){
+    Auth::routes();
+    Route::get('/vk/auth', [\App\Http\Controllers\SocialController::class, 'index'])->name('vk-auth');
+    Route::get('/vk/auth/callback/', [\App\Http\Controllers\SocialController::class, 'callback']);
 });
