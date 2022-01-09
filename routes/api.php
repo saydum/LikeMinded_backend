@@ -18,21 +18,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['middleware' => 'guest'], function (){
-    Route::get('/vk/auth', [\App\Http\Controllers\SocialController::class, 'index'])->name('vk-auth');
-    Route::get('/vk/auth/callback/', [\App\Http\Controllers\SocialController::class, 'callback']);
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::get('/get', [\App\Http\Controllers\GetController::class, 'get']);
 });
-
-Route::apiResources([
-    'topics' => \App\Http\Controllers\Api\TopicController::class,
-]);
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-Route::get('/topic/add', [\App\Http\Controllers\TopicController::class, 'index'])->name('create');
-Route::get('/topic', [\App\Http\Controllers\TopicController::class, 'index'])->name('topic');
-Route::post('/tag/add', [\App\Http\Controllers\TagController::class, 'create'])->name('tag.add');

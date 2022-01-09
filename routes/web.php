@@ -17,16 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::group(['middleware' => 'guest'], function (){
-    Route::get('/vk/auth', [\App\Http\Controllers\SocialController::class, 'index'])->name('vk-auth');
-    Route::get('/vk/auth/callback/', [\App\Http\Controllers\SocialController::class, 'callback']);
-});
-Route::post('/tag/add', [\App\Http\Controllers\TagController::class, 'create'])->name('tag.add');
-
-
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/topic', [\App\Http\Controllers\TopicController::class, 'index'])->name('topic');

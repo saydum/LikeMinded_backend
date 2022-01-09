@@ -20,7 +20,6 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'avatar',
         'password',
     ];
 
@@ -42,14 +41,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    public function topics(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(Topic::class);
-    }
-
-    public function tags(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(Tag::class);
-    }
 }
