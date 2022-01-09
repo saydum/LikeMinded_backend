@@ -20,7 +20,7 @@ class SocialService
 
 
 
-        $password = Hash::make('12345678');
+        $password = Hash::make(GeneratorPasswdService::make(8));
 
         $userModel = User::where('name', $name)->first();
 
